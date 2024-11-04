@@ -46,3 +46,27 @@
 //    the function should use the 'event' argument and access
 //    the 'target' property to add the class to it that will
 //    "fill" the square in.
+
+const baseContainer = document.querySelector('div');
+
+function createGrid(size) {
+    const mainContainer = document.createElement('div');
+    mainContainer.style.cssText = "width: 100%; height: 100%; display: flex; flex-direction: column;";
+    for (let i = 0; i < size; i++) {
+        const rowOfSquares = document.createElement('div');
+        rowOfSquares.style.cssText = "width: 100%; display: flex; flex: 1;";
+        for (let j = 0; j < size; j++) {
+            const square = document.createElement('div');
+            square.style.cssText = "flex: 1; border: 1px solid black;"
+            square.addEventListener('mouseover', fillSquare);
+            rowOfSquares.appendChild(square);
+        }
+        mainContainer.appendChild(rowOfSquares);
+    }
+    baseContainer.appendChild(mainContainer);
+}
+
+createGrid(10);
+function fillSquare(event) {
+    return;
+}
