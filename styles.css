@@ -45,3 +45,7 @@ button:active {
     height: 660px;
     border: 1px solid black;
 }
+
+.filled {
+    background-color: black;
+}

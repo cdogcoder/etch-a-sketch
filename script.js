@@ -72,5 +72,5 @@ dimensionsButton.addEventListener('click', () => {
 })
 
 function fillSquare(event) {
-    return;
+    event.target.classList.add('filled');
 }
