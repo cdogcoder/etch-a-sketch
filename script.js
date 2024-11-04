@@ -48,6 +48,7 @@
 //    "fill" the square in.
 
 const baseContainer = document.querySelector('div');
+const dimensionsButton = document.querySelector('button');
 
 function createGrid(size) {
     const mainContainer = document.createElement('div');
@@ -66,7 +67,10 @@ function createGrid(size) {
     baseContainer.appendChild(mainContainer);
 }
 
-createGrid(10);
+dimensionsButton.addEventListener('click', () => {
+    createGrid(+prompt("What dimensions do you want the grid to be? "))
+})
+
 function fillSquare(event) {
     return;
 }
