@@ -16,3 +16,33 @@
 // of 15 squares). The creation of the canvas and
 // the "square fill" effect when hovering over the
 // squares should be done through DOM manipulation.
+
+// My pseudocode
+// 1. Create a function 'createGrid' that takes
+//    in an integer type argument 'size' and 
+//    creates a grid with a width and length of 
+//    the desired 'size' value. The function should
+//    be called upon pressing a button, which will 
+//    prompt the user for a number asking for the size
+//    of the grid. Once a valid value is given, the function
+//    creates the container for the squares to go into
+//    and use a nested for loop that uses 'size' to
+//    populate it with the squares. The outer
+//    for loop body should create a container that
+//    holds a row of squares and the inner for loop
+//    body should create an individual square with the
+//    hover effect attached to it, which is then appended
+//    as a child node to the container that holds the
+//    row of squares. After the inner loop terminates, 
+//    append the container that holds a row of squares 
+//    to the main container of the squares. After the outer
+//    loop terminates, append the main container to the body
+//    of the screen somewhere.
+// 2. Create a function 'fillSquare' that takes in an
+//    event type argument 'event' and adds a class that
+//    changes the background color of the event's target.
+//    This function should be called when a user hovers
+//    over any squares in the canvas and when it is called,
+//    the function should use the 'event' argument and access
+//    the 'target' property to add the class to it that will
+//    "fill" the square in.
