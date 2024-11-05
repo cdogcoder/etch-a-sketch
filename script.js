@@ -50,8 +50,30 @@
 const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
 const maxSize = 100;
+const squareOptionsContainer = document.createElement('div');
+const eraseLabel = document.createElement('label');
+const eraseRadio = document.createElement('input');
+const fillLabel = document.createElement('label');
+const fillRadio = document.createElement('input');
+eraseRadio.setAttribute('type', 'radio');
+eraseRadio.setAttribute('name', 'squareOption');
+fillRadio.setAttribute('type', 'radio');
+fillRadio.setAttribute('name', 'squareOption');
+eraseLabel.textContent = 'Erase';
+fillLabel.textContent = 'Fill';
+eraseLabel.appendChild(eraseRadio);
+fillLabel.appendChild(fillRadio);
+eraseLabel.style.cssText = "display: flex; gap: 4px;";
+fillLabel.style.cssText = "display: flex; gap: 4px;";
+eraseRadio.style.cssText = "height: 1rem; width: 1rem;";
+fillRadio.style.cssText = "height: 1rem; width: 1rem;";
+squareOptionsContainer.style.cssText = "display: flex; gap: 12px;";
+squareOptionsContainer.appendChild(fillLabel);
+squareOptionsContainer.appendChild(eraseLabel);
+
 
 function createGrid(size) {
+    document.body.insertBefore(squareOptionsContainer, baseContainer);
     baseContainer.innerHTML = "";
     const mainContainer = document.createElement('div');
     mainContainer.style.cssText = "width: 100%; height: 100%; display: flex; flex-direction: column;";
