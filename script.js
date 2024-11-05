@@ -51,6 +51,7 @@ const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
 
 function createGrid(size) {
+    baseContainer.innerHTML = "";
     const mainContainer = document.createElement('div');
     mainContainer.style.cssText = "width: 100%; height: 100%; display: flex; flex-direction: column;";
     for (let i = 0; i < size; i++) {
