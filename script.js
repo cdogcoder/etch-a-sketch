@@ -49,6 +49,7 @@
 
 const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
+const maxSize = 100;
 
 function createGrid(size) {
     baseContainer.innerHTML = "";
@@ -69,7 +70,11 @@ function createGrid(size) {
 }
 
 dimensionsButton.addEventListener('click', () => {
-    createGrid(+prompt("What dimensions do you want the grid to be? "))
+    let size = maxSize + 1;
+    while (size > maxSize) {
+        size = +prompt("What dimensions do you want the grid to be? ");
+    }
+    createGrid(size);
 })
 
 function fillSquare(event) {
