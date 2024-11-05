@@ -102,3 +102,7 @@ dimensionsButton.addEventListener('click', () => {
 function fillSquare(event) {
     event.target.classList.add('filled');
 }
+
+function eraseSquare(event) {
+    event.target.classList.remove('filled');
+}
