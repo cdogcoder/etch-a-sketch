@@ -41,8 +41,8 @@ button:active {
 
 .canvas {
     box-sizing: content-box;
-    width: 660px;
-    height: 660px;
+    min-width: 630px;
+    min-height: 630px;
     border: 1px solid black;
 }
 
