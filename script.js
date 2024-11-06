@@ -50,6 +50,7 @@
 const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
 const maxSize = 100;
+let darkeningFillOpacity = 0;
 const squareOptionsContainer = document.createElement('div');
 const fillButton = document.createElement('button');
 const eraseButton = document.createElement('button');
@@ -111,6 +112,11 @@ function randomFillSquare(event) {
     event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgb(${getRandomValue(256)}, ${getRandomValue(256)}, ${getRandomValue(256)})`;
 }
 
+function darkeningFillSquare(event) {
+    event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgba(0,0,0,${darkeningFillOpacity})`;
+    if (darkeningFillOpacity < 1) darkeningFillOpacity += .01;
+}
+
 fillButton.addEventListener('click', () => {
     let mainContainer = baseContainer.childNodes[0];
     for (const row of mainContainer.childNodes) {
@@ -151,4 +157,4 @@ randomFillButton.addEventListener('click', () => {
             square.addEventListener('mouseover', randomFillSquare);
         }
     }
-})
+})            
