@@ -93,11 +93,11 @@ dimensionsButton.addEventListener('click', () => {
 })
 
 function fillSquare(event) {
-    event.target.classList.add('filled');
+    event.target.style.cssText = "flex: 1; border: 1px solid black; background-color: black;";
 }
 
 function eraseSquare(event) {
-    event.target.classList.remove('filled');
+    event.target.style.cssText = "flex: 1; border: 1px solid black;";
 }
 
 function getRandomValue(numOfValues) {
@@ -134,7 +134,7 @@ resetButton.addEventListener('click', () => {
     let mainContainer = baseContainer.childNodes[0];
     for (const row of mainContainer.childNodes) {
         for (const square of row.childNodes) {
-            square.classList.remove('filled');
+            square.style.cssText = "flex: 1; border: 1px solid black;";
         }
     }
 })
