@@ -117,3 +117,12 @@ eraseButton.addEventListener('click', () => {
         }
     }
 })
+
+resetButton.addEventListener('click', () => {
+    let mainContainer = baseContainer.childNodes[0];
+    for (const row of mainContainer.childNodes) {
+        for (const square of row.childNodes) {
+            square.classList.remove('filled');
+        }
+    }
+})
