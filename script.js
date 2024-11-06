@@ -54,14 +54,16 @@ const squareOptionsContainer = document.createElement('div');
 const fillButton = document.createElement('button');
 const eraseButton = document.createElement('button');
 const resetButton = document.createElement('button');
+const randomFillButton = document.createElement('button');
 fillButton.textContent = 'Fill';
 eraseButton.textContent = 'Erase';
 resetButton.textContent = 'Reset';
+randomFillButton.textContent = 'Random Fill';
 squareOptionsContainer.style.cssText = "display: flex; gap: 12px;";
 squareOptionsContainer.appendChild(fillButton);
 squareOptionsContainer.appendChild(eraseButton);
 squareOptionsContainer.appendChild(resetButton);
-
+squareOptionsContainer.appendChild(randomFillButton);
 
 function createGrid(size) {
     document.body.insertBefore(squareOptionsContainer, baseContainer);
