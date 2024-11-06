@@ -104,6 +104,10 @@ function getRandomValue(numOfValues) {
     return Math.floor(Math.random() * numOfValues);
 }
 
+function randomFillSquare(event) {
+    event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgb(${getRandomValue(256)}, ${getRandomValue(256)}, ${getRandomValue(256)})`;
+}
+
 fillButton.addEventListener('click', () => {
     let mainContainer = baseContainer.childNodes[0];
     for (const row of mainContainer.childNodes) {
