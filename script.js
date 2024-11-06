@@ -100,6 +100,10 @@ function eraseSquare(event) {
     event.target.classList.remove('filled');
 }
 
+function getRandomValue(numOfValues) {
+    return Math.floor(Math.random() * numOfValues);
+}
+
 fillButton.addEventListener('click', () => {
     let mainContainer = baseContainer.childNodes[0];
     for (const row of mainContainer.childNodes) {
