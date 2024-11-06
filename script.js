@@ -81,7 +81,7 @@ function createGrid(size) {
 
 dimensionsButton.addEventListener('click', () => {
     let size = maxSize + 1;
-    while (size > maxSize) {
+    while (size > maxSize || !Number.isInteger(size) || size == null || size == '') {
         size = +prompt("What dimensions do you want the grid to be? ");
     }
     createGrid(size);
