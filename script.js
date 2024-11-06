@@ -51,25 +51,13 @@ const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
 const maxSize = 100;
 const squareOptionsContainer = document.createElement('div');
-const eraseLabel = document.createElement('label');
-const eraseRadio = document.createElement('input');
-const fillLabel = document.createElement('label');
-const fillRadio = document.createElement('input');
-eraseRadio.setAttribute('type', 'radio');
-eraseRadio.setAttribute('name', 'squareOption');
-fillRadio.setAttribute('type', 'radio');
-fillRadio.setAttribute('name', 'squareOption');
-eraseLabel.textContent = 'Erase';
-fillLabel.textContent = 'Fill';
-eraseLabel.appendChild(eraseRadio);
-fillLabel.appendChild(fillRadio);
-eraseLabel.style.cssText = "display: flex; gap: 4px;";
-fillLabel.style.cssText = "display: flex; gap: 4px;";
-eraseRadio.style.cssText = "height: 1rem; width: 1rem;";
-fillRadio.style.cssText = "height: 1rem; width: 1rem;";
+const fillButton = document.createElement('button');
+const eraseButton = document.createElement('button');
+fillButton.textContent = 'Fill';
+eraseButton.textContent = 'Erase';
 squareOptionsContainer.style.cssText = "display: flex; gap: 12px;";
-squareOptionsContainer.appendChild(fillLabel);
-squareOptionsContainer.appendChild(eraseLabel);
+squareOptionsContainer.appendChild(fillButton);
+squareOptionsContainer.appendChild(eraseButton);
 
 
 function createGrid(size) {
@@ -82,8 +70,8 @@ function createGrid(size) {
         rowOfSquares.style.cssText = "width: 100%; display: flex; flex: 1;";
         for (let j = 0; j < size; j++) {
             const square = document.createElement('div');
-            square.style.cssText = "flex: 1; border: 1px solid black;"
             square.addEventListener('mouseover', fillSquare);
+            square.style.cssText = "flex: 1; border: 1px solid black;";
             rowOfSquares.appendChild(square);
         }
         mainContainer.appendChild(rowOfSquares);
@@ -106,3 +94,23 @@ function fillSquare(event) {
 function eraseSquare(event) {
     event.target.classList.remove('filled');
 }
+
+fillButton.addEventListener('click', () => {
+    let mainContainer = baseContainer.childNodes[0];
+    for (const row of mainContainer.childNodes) {
+        for (const square of row.childNodes) {
+            square.removeEventListener('mouseover', eraseSquare);
+            square.addEventListener('mouseover', fillSquare);
+        }
+    }
+})
+
+eraseButton.addEventListener('click', () => {
+    let mainContainer = baseContainer.childNodes[0];
+    for (const row of mainContainer.childNodes) {
+        for (const square of row.childNodes) {
+            square.removeEventListener('mouseover', fillSquare);
+            square.addEventListener('mouseover', eraseSquare);
+        }
+    }
+})
