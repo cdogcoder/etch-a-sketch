@@ -149,6 +149,7 @@ resetButton.addEventListener('click', () => {
     for (const row of mainContainer.childNodes) {
         for (const square of row.childNodes) {
             square.style.cssText = "flex: 1; border: 1px solid black;";
+            darkeningFillOpacity = 0;
         }
     }
 })
