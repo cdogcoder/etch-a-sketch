@@ -53,11 +53,14 @@ const maxSize = 100;
 const squareOptionsContainer = document.createElement('div');
 const fillButton = document.createElement('button');
 const eraseButton = document.createElement('button');
+const resetButton = document.createElement('button');
 fillButton.textContent = 'Fill';
 eraseButton.textContent = 'Erase';
+resetButton.textContent = 'Reset';
 squareOptionsContainer.style.cssText = "display: flex; gap: 12px;";
 squareOptionsContainer.appendChild(fillButton);
 squareOptionsContainer.appendChild(eraseButton);
+squareOptionsContainer.appendChild(resetButton);
 
 
 function createGrid(size) {
