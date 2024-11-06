@@ -99,7 +99,7 @@ dimensionsButton.addEventListener('click', () => {
 })
 
 function fillSquare(event) {
-    event.target.style.cssText = "flex: 1; border: 1px solid black; background-color: black;";
+    if (!event.target.style.backgroundColor) event.target.style.cssText = "flex: 1; border: 1px solid black; background-color: black;";
 }
 
 function eraseSquare(event) {
@@ -111,11 +111,11 @@ function getRandomValue(numOfValues) {
 }
 
 function randomFillSquare(event) {
-    event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgb(${getRandomValue(256)}, ${getRandomValue(256)}, ${getRandomValue(256)})`;
+    if (!event.target.style.backgroundColor) event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgb(${getRandomValue(256)}, ${getRandomValue(256)}, ${getRandomValue(256)})`;
 }
 
 function darkeningFillSquare(event) {
-    event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgba(0,0,0,${darkeningFillOpacity})`;
+    if (!event.target.style.backgroundColor) event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgba(0,0,0,${darkeningFillOpacity})`;
     const proportion = 1 / gridDimensions;
     if (darkeningFillOpacity < 1) darkeningFillOpacity += proportion;
 }
