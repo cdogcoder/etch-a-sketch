@@ -123,6 +123,7 @@ fillButton.addEventListener('click', () => {
         for (const square of row.childNodes) {
             square.removeEventListener('mouseover', eraseSquare);
             square.removeEventListener('mouseoveer', randomFillSquare);
+            square.removeEventListener('mouseover', darkeningFillSquare);
             square.addEventListener('mouseover', fillSquare);
         }
     }
@@ -134,6 +135,7 @@ eraseButton.addEventListener('click', () => {
         for (const square of row.childNodes) {
             square.removeEventListener('mouseover', fillSquare);
             square.removeEventListener('mouseoveer', randomFillSquare);
+            square.removeEventListener('mouseover', darkeningFillSquare);
             square.addEventListener('mouseover', eraseSquare);
         }
     }
@@ -154,7 +156,20 @@ randomFillButton.addEventListener('click', () => {
         for (const square of row.childNodes) {
             square.removeEventListener('mouseover', eraseSquare);
             square.removeEventListener('mouseover', fillSquare);
+            square.removeEventListener('mouseover', darkeningFillSquare);
             square.addEventListener('mouseover', randomFillSquare);
         }
     }
 })            
+
+darkeningFillButton.addEventListener('click', () => {
+    let mainContainer = baseContainer.childNodes[0];
+    for (const row of mainContainer.childNodes) {
+        for (const square of row.childNodes) {
+            square.removeEventListener('mouseover', eraseSquare);
+            square.removeEventListener('mouseover', fillSquare);
+            square.removeEventListener('mouseover', randomFillSquare);
+            square.addEventListener('mouseover', darkeningFillSquare);
+        }
+    }
+})
