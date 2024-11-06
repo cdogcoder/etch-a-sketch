@@ -51,6 +51,7 @@ const baseContainer = document.querySelector('div');
 const dimensionsButton = document.querySelector('button');
 const maxSize = 100;
 let darkeningFillOpacity = 0;
+let gridDimensions;
 const squareOptionsContainer = document.createElement('div');
 const fillButton = document.createElement('button');
 const eraseButton = document.createElement('button');
@@ -86,6 +87,7 @@ function createGrid(size) {
         mainContainer.appendChild(rowOfSquares);
     }
     baseContainer.appendChild(mainContainer);
+    return size**2;
 }
 
 dimensionsButton.addEventListener('click', () => {
@@ -93,7 +95,7 @@ dimensionsButton.addEventListener('click', () => {
     while (size > maxSize || !Number.isInteger(size) || size == null || size == '') {
         size = +prompt("What dimensions do you want the grid to be? ");
     }
-    createGrid(size);
+    gridDimensions = createGrid(size);
 })
 
 function fillSquare(event) {
@@ -114,7 +116,8 @@ function randomFillSquare(event) {
 
 function darkeningFillSquare(event) {
     event.target.style.cssText = `flex: 1; border: 1px solid black; background-color: rgba(0,0,0,${darkeningFillOpacity})`;
-    if (darkeningFillOpacity < 1) darkeningFillOpacity += .01;
+    const proportion = 1 / gridDimensions;
+    if (darkeningFillOpacity < 1) darkeningFillOpacity += proportion;
 }
 
 fillButton.addEventListener('click', () => {
